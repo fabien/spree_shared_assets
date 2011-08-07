@@ -2,42 +2,31 @@
 
 <%= render :partial => 'admin/shared/product_tabs', :locals => {:current => "Images"} %>
 
-<table class="index">
+<table class="index sortable">
   <tr>
     <th><%= t("thumbnail") %></th>
-    <% if @product.has_variants? %>
-      <th><%= Variant.human_name %></th>
-    <% end %>
+    <th>Assigned To</th>
     <th><%= t("alt_text") %></th>
     <th><%= t("action") %></th>
   </tr>
-
-  <% @product.images.each do |image| %>
+  <% @product.all_images.each do |image| %>
     <tr id="<%= dom_id(image) %>">
-      <td><%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:product)) %></td>
-      <% if @product.has_variants? %>
-        <td><%= t('product') %></td>
+      <td>
+        <span class="handle"></span>
+        <%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:product)) %>
+      </td>
+      <td>
+      <% image.assignments.map { |a| a == @product ? t('all') : a.try(:product) == @product ? a.try(:options_text) : nil }.each do |txt| %>
+        <span class="prod_label"><%= txt %></span>
       <% end %>
+      </td>
       <td><%= image.alt %></td>
       <td class="actions">
-        <%= link_to_with_icon('edit', t("edit"), edit_admin_product_image_url(@product, image)) %>
+        <%= link_to_with_icon('edit', t("edit"), edit_admin_product_image_url(@product, image), :class => 'edit') %>
+        &nbsp;
+        <%= link_to_delete image, {:url => admin_product_image_url(@product, image) }%>
       </td>
     </tr>
-  <% end %>
-
-  <% @product.variants.each do |variant| %>
-    <% variant.images.each do |image| %>
-      <tr id="<%= dom_id(image) %>">
-        <td><%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:product)) %></td>
-        <% if @product.has_variants? %>
-          <td><%= variant.options_text %></td>
-        <% end %>
-        <td><%= image.alt %></td>
-        <td class="actions">
-          <%= link_to_with_icon('edit', t("edit"), edit_admin_product_image_url(@product, image)) %>
-        </td>
-      </tr>
-    <% end %>
   <% end %>
 </table>
 
@@ -48,6 +37,18 @@
 </p>
 
 <% content_for :head do %>
+  <style type="text/css" media="screen">
+    .prod_label {
+      display: block;
+      float: left; 
+      background: #eee; 
+      padding: 2px 3px; 
+      margin: 0 0.5em 0.25em 0; 
+      -moz-border-radius: 2px; 
+      -webkit-border-radius: 2px; 
+      border-radius: 2px;
+      white-space: nowrap; }
+  </style>
   <script type="text/javascript">
     jQuery(document).ready(function(){
 
