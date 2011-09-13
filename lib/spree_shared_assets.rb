@@ -1,5 +1,4 @@
 require 'spree_core'
-require 'spree_shared_assets_hooks'
 
 module SpreeSharedAssets
   class Engine < Rails::Engine
