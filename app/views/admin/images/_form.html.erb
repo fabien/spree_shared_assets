@@ -1,13 +1,13 @@
-<tr>
+<tr data-hook="file">
   <td><%= t("filename") %>:</td>
   <td><%= f.file_field :attachment %></td>
 </tr>
-<tr>
+<tr data-hook="alt_text">
   <td><%= t("alt_text") %>:</td>
   <td><%= f.text_area :alt, :class => 'fullwidth' %></td>
 </tr>
 <% if @product.has_variants? %>
-  <tr>
+  <tr data-hook="variant">
     <td><%= t("shares_description") %></td>
     <td>
       <table class="index">

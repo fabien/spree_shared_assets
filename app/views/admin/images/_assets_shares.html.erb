@@ -1,16 +1,13 @@
 <tr>
   <td>
-    <%= check_box_tag "shareable_id", @product.id,
-      @image.products.include?(@product) %>
+    <%= check_box_tag "shareable_id", @product.id, @image.products.include?(@product) %>
     &nbsp;Product
   </td>
 </tr>
 <% for variant in @product.variants %>
   <tr>
     <td>
-      <%= check_box_tag "image[variant_ids][]",
-        variant.id,
-        @image.variants.include?(variant) %>
+      <%= check_box_tag "image[variant_ids][]", variant.id, @image.variants.include?(variant) %>
       &nbsp;<%= "#{variant.sku} #{variant.options_text}" %>
     </td>
   </tr>

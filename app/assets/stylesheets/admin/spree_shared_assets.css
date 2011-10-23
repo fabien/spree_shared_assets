@@ -1,0 +1,11 @@
+.prod_label {
+  display: block;
+  float: left; 
+  background: #eee; 
+  padding: 2px 3px; 
+  margin: 0 0.5em 0.25em 0; 
+  -moz-border-radius: 2px; 
+  -webkit-border-radius: 2px; 
+  border-radius: 2px;
+  white-space: nowrap; 
+}
