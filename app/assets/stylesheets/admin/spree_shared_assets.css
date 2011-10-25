@@ -9,3 +9,17 @@
   border-radius: 2px;
   white-space: nowrap; 
 }
+
+.basic-table .cropbox {
+  overflow: hidden;
+  float: left;
+  background-color: #000;
+  background-repeat: none;
+  background-position: 0 0;
+  border: 1px solid #000;
+}
+
+.edit-offset td strong {
+  display: inline-block;
+  width: 5ex;
+}

@@ -2,3 +2,11 @@
 en:
   shares_description: "Use this Asset with:"
   shares_no_product_variant_assigned: "You need to assign this image to at leat on variant or 'All'"
+  offset_x: Center offset X
+  offset_y: Center offset Y
+  shared_asset_settings:
+    title: Shared Asset Settings
+    description: Image settings
+    admin_style: Admin Style
+    cropbox_width: Width
+    cropbox_height: Height

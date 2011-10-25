@@ -1,5 +1,5 @@
-# Put your extension routes here.
-
-# map.namespace :admin do |admin|
-#   admin.resources :whatever
-# end  
+Rails.application.routes.draw do
+  namespace :admin do
+    resource :shared_asset_settings
+  end
+end
