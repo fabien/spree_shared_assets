@@ -7,8 +7,10 @@
 <% for variant in @product.variants %>
   <tr>
     <td>
-      <%= check_box_tag "image[variant_ids][]", variant.id, @image.variants.include?(variant) %>
-      &nbsp;<%= "#{variant.sku} #{variant.options_text}" %>
+      <label>
+        <%= check_box_tag "image[variant_ids][]", variant.id, @image.variants.include?(variant) %>
+        &nbsp;<%= "#{variant.sku} #{variant.options_text}" %>
+      </label>
     </td>
   </tr>
 <% end %>
