@@ -4,7 +4,7 @@
 </tr>
 <tr data-hook="alt_text">
   <td><%= t("alt_text") %>:</td>
-  <td><%= f.text_area :alt, :class => 'fullwidth' %></td>
+  <td><%= f.text_field :alt, :class => 'fullwidth' %></td>
 </tr>
 <% if @product.has_variants? %>
   <tr data-hook="variant">
