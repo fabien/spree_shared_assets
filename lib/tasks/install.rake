@@ -5,8 +5,8 @@ namespace :spree_shared_assets do
   end
   
   task :copy_shared_assets => :environment do
-    Asset.where(:type => 'Image').each do |asset|
-      AssetsShare.create(:asset => asset, :shareable => asset.viewable)
+    Spree::Asset.where(:type => 'Spree::Image').each do |asset|
+      Spree::AssetsShare.create(:asset => asset, :shareable => asset.viewable)
     end
   end
 

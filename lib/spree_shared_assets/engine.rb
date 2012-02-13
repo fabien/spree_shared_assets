@@ -22,3 +22,6 @@ module SpreeSharedAssets
     config.to_prepare &method(:activate).to_proc
   end
 end
+
+module Spree::SharedAssets
+end
