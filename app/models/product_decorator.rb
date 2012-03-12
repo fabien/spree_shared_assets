@@ -14,7 +14,7 @@ Spree::Product.class_eval do
   
   def all_images
     return images unless has_variants?
-    return (images + variant_images).uniq
+    return (images + variant_images).uniq.sort_by(&:position)
   end
   
   def variant_images
