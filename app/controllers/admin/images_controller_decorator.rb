@@ -9,6 +9,8 @@ module Spree
       end
 
       def set_viewable
+        @image.viewable = @product
+        
         if params[:shareable_id] && !params[:shareable_id].blank? # Check if "Product" option was selected
           # Assign to product
           @image.products << @product unless @image.products.include?(@product)
