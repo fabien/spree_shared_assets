@@ -7,6 +7,13 @@ Admin::ImagesController.class_eval do
   end
 
   def set_viewable
+    
+    logger.debug('SET VIEWABLE')
+    
+    logger.debug(params[:shareable_id])
+    
+    
+    
     if params[:shareable_id] && !params[:shareable_id].blank? # Check if "Product" option was selected
       # Assign to product
       @image.products << @product unless @image.products.include?(@product)
@@ -17,8 +24,8 @@ Admin::ImagesController.class_eval do
       unless variant_ids
         @image.products << @product unless @image.products.include?(@product)
       else # "Product" option not selected, delete if it exists
-        shares = @image.assets_shares.find_all_by_shareable_type('Product')
-        shares.each{|s| s.destroy if s.shareable_id == @product.id} if shares.size > 0
+        # shares = @image.assets_shares.find_all_by_shareable_type('Product')
+        # shares.each{|s| s.destroy if s.shareable_id == @product.id} if shares.size > 0
       end
     end
   end
