@@ -10,12 +10,15 @@ image once and share that image with the product and any variants.
 
 ### Installation
 
-Install the extension as normal, once installed you will need to run rake db:migrate to create
-the new join table.
+Install the extension using:
+
+    rails g spree_shared_assets:install
+
+Once installed you will need to run rake db:migrate to create the new join table.
 
 There is also a rake task that will create new links for all existing assets, to run do:
 
-rake spree:extensions:shared_assets:copy_shared_assets
+    rake spree_shared_assets:copy_shared_assets
 
 ### Admin
 

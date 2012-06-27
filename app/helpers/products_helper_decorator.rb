@@ -1,4 +1,4 @@
-module ProductsHelper
+module Spree::ProductsHelper
 
   def variant_images_hash(product)
     

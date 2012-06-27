@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <label>
+      <%= check_box_tag "shareable_id", @product.id, @image.products.include?(@product) %>
+      &nbsp;Product
+    </label>
+  </td>
+</tr>
+<% for variant in @product.variants %>
+  <tr>
+    <td>
+      <label>
+        <%= check_box_tag "variant_ids[]", variant.id, @image.variants.include?(variant) %>
+        &nbsp;<%= "#{variant.sku} #{variant.options_text}" %>
+      </label>
+    </td>
+  </tr>
+<% end %>
+<%= hidden_field_tag "variant_ids[]", "" %>
+
+

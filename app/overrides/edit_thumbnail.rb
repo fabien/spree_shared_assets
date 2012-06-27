@@ -1,6 +1,6 @@
 Deface::Override.new(
-  :virtual_path => "admin/images/edit",
+  :virtual_path => "spree/admin/images/edit",
   :name => "edit_thumbnail",
   :replace => "[data-hook='thumbnail']",
-  :partial => 'admin/images/thumbnail',
+  :partial => 'spree/admin/images/thumbnail',
   :disabled => false)

@@ -4,7 +4,7 @@
 </tr>
 <tr data-hook="alt_text">
   <td><%= t("alt_text") %>:</td>
-  <td><%= f.text_area :alt, :class => 'fullwidth' %></td>
+  <td><%= f.text_field :alt, :class => 'fullwidth' %></td>
 </tr>
 <% if @product.has_variants? %>
   <tr data-hook="variant">
@@ -12,7 +12,7 @@
     <td>
       <table class="index">
         <tr>
-          <th><%= Variant.model_name.human.pluralize %></th>
+          <th><%= Spree::Variant.model_name.human.pluralize %></th>
         </tr>
         <%= render "assets_shares" %>
       </table>
