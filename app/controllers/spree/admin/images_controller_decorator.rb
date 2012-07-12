@@ -26,9 +26,10 @@ module Spree
         variant_ids = (params[:variant_ids] || []).select { |i| !i.blank? }
         if variant_ids.any?
           @image.variant_ids = variant_ids
-        elsif !assign_to_product
+        else
           # No variants or Product specified, default to at least product assignment
           @image.products << @product unless @image.products.include?(@product)
+          @image.variant_ids = []
         end
       end
 

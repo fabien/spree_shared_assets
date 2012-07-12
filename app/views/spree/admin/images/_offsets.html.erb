@@ -1,0 +1,12 @@
+<% if Spree::SharedAssets::Config[:cropbox_width]  > 0 %>
+<tr class="edit-offset">
+  <td><%= t('offset_x') %>: <strong><%= @image.offset_x || 0 %>%</strong></td>
+  <td><%= f.text_field :offset_x, :size => 3, :readonly => 'readonly' %> <div class="slider"></div></td>
+</tr>
+<% end %>
+<% if Spree::SharedAssets::Config[:cropbox_height]  > 0 %>
+<tr class="edit-offset">
+  <td><%= t('offset_y') %>: <strong><%= @image.offset_y || 0 %>%</strong></td>
+  <td><%= f.text_field :offset_y, :size => 3, :readonly => 'readonly' %> <div class="slider"></div></td>
+</tr>
+<% end %>
