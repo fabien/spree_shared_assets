@@ -1,7 +1,7 @@
 <tr>
   <td>
     <label>
-      <%= check_box_tag "shareable_id", @product.id, @image.products.include?(@product) %>
+      <%= check_box_tag "shareable_id", @product.master.id, @image.variants.include?(@product.master) %>
       &nbsp;Product
     </label>
   </td>

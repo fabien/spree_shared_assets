@@ -9,6 +9,13 @@ namespace :spree_shared_assets do
       Spree::AssetsShare.create(:asset => asset, :shareable => asset.viewable)
     end
   end
+  
+  task :fix_shared_assets => :environment do
+    Spree::AssetsShare.where(:shareable_type => 'Spree::Product').each do |share|
+      share.shareable = share.shareable.master
+      share.save
+    end
+  end
 
   namespace :install do
     desc "Copies all migrations (NOTE: This will be obsolete with Rails 3.1)"

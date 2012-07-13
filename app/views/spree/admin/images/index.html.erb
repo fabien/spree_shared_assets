@@ -9,14 +9,14 @@
     <th><%= t("alt_text") %></th>
     <th><%= t("action") %></th>
   </tr>
-  <% @product.all_images.each do |image| %>
+  <% @product.images.each do |image| %>
     <tr id="<%= spree_dom_id(image) %>" data-hook="images_row">
       <td>
         <span class="handle"></span>
         <%= link_to(image_tag(image.attachment.url(:mini)), image.attachment.url(:product)) %>
       </td>
       <td>
-      <% image.assignments.map { |a| a == @product ? t('all') : a.try(:product) == @product ? a.try(:options_text) : nil }.each do |txt| %>
+      <% image.assignments.map { |a| a == @product.master ? t('all') : a.try(:options_text) }.each do |txt| %>
         <span class="prod_label"><%= txt %></span>
       <% end %>
       </td>

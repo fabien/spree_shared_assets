@@ -5,15 +5,11 @@ Spree::Product.class_eval do
               :as => :shareable, 
               :include => :asset,
               :class_name => "Spree::AssetsShare"
-  has_many :images,
-              :source => :asset, 
-              :foreign_key => "asset_id", 
-              :through => :assets_shares, 
-              :class_name => "Spree::Image", 
-              :order => "spree_assets.position ASC"
-  
-  def all_images
-    return (Spree::Asset.for_product(self) + Spree::Asset.for_variants_of_product(self)).uniq.sort_by(&:position)
+    
+  def variant_images
+    Spree::Image.for_product(self)
   end
+  
+  alias_method :images, :variant_images
     
 end

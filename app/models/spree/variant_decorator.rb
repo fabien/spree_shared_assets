@@ -5,6 +5,7 @@ Spree::Variant.class_eval do
               :as => :shareable, 
               :include => :asset, 
               :class_name => 'Spree::AssetsShare'
+  
   has_many :images, 
               :source => :asset, 
               :foreign_key => "asset_id", 
