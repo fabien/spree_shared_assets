@@ -1,3 +1,4 @@
+<tr data-hook="thumbnail">
 <% if Spree::SharedAssets::Config[:cropbox_width] == 0 && Spree::SharedAssets::Config[:cropbox_height] == 0 %>
 <td><%= t(:thumbnail) %>:</td>
 <td><%= link_to image_tag(@image.attachment.url(Spree::SharedAssets::Config[:admin_style].to_sym)), @image.attachment.url(:product) %></td>
@@ -10,5 +11,5 @@
   <%= image_tag(@image.attachment.url(Spree::SharedAssets::Config[:admin_style].to_sym)) %>
   </div>
 </td>
-</tr>
 <% end %>
+</tr>
