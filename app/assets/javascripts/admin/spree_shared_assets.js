@@ -5,7 +5,7 @@ $(function() {
     $(this).css('float', 'none');
     var $img = $(this).children('img').detach();
     if ($img.is('*')) {
-      $(this).css('background-image', 'url(' + $img.attr('src') + ')');
+      $(this).css('background-image', 'url("' + $img.attr('src') + '")');
     }
   });
   
