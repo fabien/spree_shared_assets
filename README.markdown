@@ -15,7 +15,7 @@ the new join table.
 
 There is also a rake task that will create new links for all existing assets, to run do:
 
-rake spree:extensions:shared_assets:copy_shared_assets
+rake spree_shared_assets:copy_shared_assets
 
 ### Admin
 
